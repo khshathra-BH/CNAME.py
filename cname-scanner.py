@@ -4,16 +4,6 @@ import json
 import argparse
 
 def check_cname(subdomain, nameserver=None):
-  """Checks if a subdomain has a CNAME record and returns the CNAME target if found.
-
-  Args:
-    subdomain (str): The subdomain to check.
-    nameserver (str, optional): The nameserver to use for the DNS query.
-      Defaults to 8.8.8.8 (Google Public DNS).
-
-  Returns:
-    str: The CNAME target if found, otherwise None.
-  """
 
   resolver = dns.resolver.Resolver()
 
