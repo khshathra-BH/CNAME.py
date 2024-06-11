@@ -24,8 +24,9 @@ This Python script helps you check subdomains for CNAME records and identify the
 ```bash
 python3 cname-scanner.py --file subdomains.txt
 ```
-### Example Output (text)
+### Example Output (JSON format by default)
 
+![image](https://github.com/khshathra-BH/cname-scanner/assets/129506375/74a573e1-cd21-4644-8771-afab3c9d37c6)
 
 
 
