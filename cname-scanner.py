@@ -2,6 +2,7 @@ import dns.resolver
 import dns.exception
 import json
 import argparse
+from colorama import Fore, Style
 
 def check_cname(subdomain, nameserver=None):
 
@@ -42,7 +43,7 @@ def main():
   if args.output == 'text':
     # Print results in text format
     for cname, subdomains in cname_records.items():
-      print(cname)
+      print(f"\n{Fore.CYAN + cname + Style.RESET_ALL}")
       print('-' * len(cname))
       for subdomain in subdomains:
         print(subdomain)
