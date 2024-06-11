@@ -22,7 +22,7 @@ This Python script helps you check subdomains for CNAME records and identify the
 3. Run the script from the command line:
 
 ```bash
-python cname-scanner.py --file subdomains.txt
+python3 cname-scanner.py --file subdomains.txt
 ```
 
 This will output the results in JSON format by default.
