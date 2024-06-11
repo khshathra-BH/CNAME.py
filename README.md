@@ -24,6 +24,10 @@ This Python script helps you check subdomains for CNAME records and identify the
 ```bash
 python3 cname-scanner.py --file subdomains.txt
 ```
+### Example Output (text)
+
+
+
 
 This will output the results in JSON format by default.
 
@@ -40,6 +44,10 @@ Example (using custom nameserver and text output):
 ```bash
 python3 cname-scanner.py --file subdomains.txt --nameserver 8.4.4.8 --output text
 ```
+### Example Output (text)
+
+![image](https://github.com/khshathra-BH/cname-scanner/assets/129506375/8a5f66da-fb50-4f5e-a472-9dc8acabae9e)
+
 
 ## How it Works
 
