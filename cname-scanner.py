@@ -3,6 +3,8 @@ import dns.exception
 import json
 import argparse
 from colorama import Fore, Style
+from urllib.parse import urlparse
+
 
 def check_cname(subdomain, nameserver=None):
 
@@ -34,6 +36,9 @@ def main():
   with open(args.file, 'r') as f:
     for line in f:
       subdomain = line.strip()
+      if subdomain.startswith("http://") or subdomain.startswith("https://"):
+        subdomain = urlparse(subdomain).hostname
+
       cname_target = check_cname(subdomain, args.nameserver)
       if cname_target:
         if cname_target not in cname_records:
