@@ -7,6 +7,9 @@ This Python script helps you check subdomains for CNAME records and identify the
 * Checks subdomains from a text file.
 * Uses Google Public DNS (8.8.8.8) by default for lookups (configurable).
 * Outputs results in JSON format (default) or text format.
+* Add option for summery report
+* Add option for show only unique cname records
+* Get subdomains in pip (cat subdomains | python3 cname-mapper.py )
 
 ## Installation
 
@@ -22,7 +25,7 @@ This Python script helps you check subdomains for CNAME records and identify the
 3. Run the script from the command line:
 
 ```bash
-python3 cname-scanner.py --file subdomains.txt
+python3 cname-mapper.py --file subdomains.txt
 ```
 ### Example Output (JSON format by default)
 
@@ -43,7 +46,7 @@ Options:
 Example (using custom nameserver and text output):
 
 ```bash
-python3 cname-scanner.py --file subdomains.txt --nameserver 8.4.4.8 --output text
+python3 cname-mapper.py --file subdomains.txt --nameserver 8.4.4.8 --output text
 ```
 ### Example Output (text)
 
