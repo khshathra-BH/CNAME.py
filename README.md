@@ -11,46 +11,51 @@ This Python script helps you check subdomains for CNAME records and identify the
 * Add option for show only unique cname records
 * Get subdomains in pip (cat subdomains | python3 cname-mapper.py )
 
+### Options:
+
+```bash
+  -f FILE, --file FILE  Path to the text file containing subdomains
+  -ns NAMESERVER, --nameserver NAMESERVER
+                        Optional, nameserver to use for DNS queries (defaults
+                        to 8.8.8.8)
+  -o {text,json}, --output {text,json}
+                        Optional, Output format (JSON, or text(default))
+  -r, --report          Optional, Show a summary report about process
+  -c, --cname           Optional, Show only cnames
+```
+
 ## Installation
 
 **Requirements:**
 
 * Python 3
-* `dnspython` library (install using `pip install dnspython`)
 
 ## Usage
 
-1. Save the script as `cname.py`.
-2. Create a text file containing the subdomains you want to check (one subdomain per line).
-3. Run the script from the command line:
+1. Clone the project.
+2. `cd cname-mapper`
+3. `pip3 install -r requirements.txt`
+5. Run the script from the command line:
 
 ```bash
-python3 cname-mapper.py --file subdomains.txt
+python3 cname-mapper.py --file subdomains.txt 
 ```
-### Example Output (JSON format by default)
 
-![image](https://github.com/khshathra-BH/cname-scanner/assets/129506375/74a573e1-cd21-4644-8771-afab3c9d37c6)
+### Output 
+
+![cname_mapper-simple](https://github.com/miladkeivanfar/cname-mapper/assets/129506375/b7557b21-b5a3-4fec-a5a4-47218caeb7ea)
 
 
-
-This will output the results in JSON format by default.
-
-Options:
-
---file: Path to the text file containing subdomains (required).
-
---nameserver: Optional nameserver to use for DNS queries (defaults to 8.8.8.8).
-
---output: Output format (json - default, or text).
-
-Example (using custom nameserver and text output):
+### Some Examples:
 
 ```bash
-python3 cname-mapper.py --file subdomains.txt --nameserver 8.4.4.8 --output text
+python3 cname-mapper.py -f subdomains.txt
+cat subdomains.txt | python3 cname-mapper.py
+python3 cname-mapper.py -f subdomains.txt -r # show summery report
+python3 cname-mapper.py -f subdomains.txt -c # only show unique CNAME
+python3 cname-mapper.py -f subdomains.txt -ns # use custom name server for DNS queries 
 ```
-### Example Output (text)
 
-![image](https://github.com/khshathra-BH/cname-scanner/assets/129506375/8a5f66da-fb50-4f5e-a472-9dc8acabae9e)
 
 
 ## How it Works
