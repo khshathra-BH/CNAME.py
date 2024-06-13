@@ -9,7 +9,7 @@ This Python script helps you check subdomains for CNAME records and identify the
 * Outputs results in JSON format (default) or text format.
 * Add option for summery report
 * Add option for show only unique cname records
-* Get subdomains in pip (cat subdomains | python3 cname-mapper.py )
+* Get subdomains in pipe (cat subdomains | python3 cname-mapper.py )
 
 ### Options:
 
