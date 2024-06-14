@@ -1,4 +1,5 @@
-# CNAME Record Checker
+# CNAME Mapper
+
 
 This Python script helps you check subdomains for CNAME records and identify the targets they point to.
 
