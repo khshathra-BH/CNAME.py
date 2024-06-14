@@ -1,9 +1,7 @@
 dns.resolver
 dns.exception
 json
-time
 argparse
-sys
 tabulate
 colorama
 urllib.parse
