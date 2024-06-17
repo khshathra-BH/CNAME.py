@@ -24,7 +24,7 @@ options:
                         Optional, Output format (JSON, or text(default))
   -c, --cname           Optional, Show only cnames
   -d, --delete          Optional, Show all subdomains whitout CNAMEs
-  -s, --silent          Do not show the repor
+  -s, --silent          Do not show the report
 ```
 
 ## Installation
