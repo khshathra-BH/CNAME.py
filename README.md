@@ -15,14 +15,16 @@ This Python script helps you check subdomains for CNAME records and identify the
 ### Options:
 
 ```bash
+options:
+  -h, --help            show this help message and exit
   -f FILE, --file FILE  Path to the text file containing subdomains
   -ns NAMESERVER, --nameserver NAMESERVER
-                        Optional, nameserver to use for DNS queries (defaults
-                        to 8.8.8.8)
+                        Optional, nameserver to use for DNS queries (defaults to 8.8.8.8)
   -o {text,json}, --output {text,json}
                         Optional, Output format (JSON, or text(default))
-  -r, --report          Optional, Show a summary report about process
   -c, --cname           Optional, Show only cnames
+  -d, --delete          Optional, Show all subdomains whitout CNAMEs
+  -s, --silent          Do not show the repor
 ```
 
 ## Installation
