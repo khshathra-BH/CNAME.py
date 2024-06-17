@@ -56,6 +56,7 @@ python3 cname-mapper.py -f subdomains.txt
 cat subdomains.txt | python3 cname-mapper.py
 python3 cname-mapper.py -f subdomains.txt -r # show summery report
 python3 cname-mapper.py -f subdomains.txt -c # only show unique CNAME
+python3 cname-mapper.py -f subdomains.txt -d # remove CNAME and print result
 python3 cname-mapper.py -f subdomains.txt -ns # use custom name server for DNS queries 
 ```
 
