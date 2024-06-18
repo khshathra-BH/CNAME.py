@@ -154,9 +154,9 @@ def main():
             print(Fore.GREEN + 'Result with remove CNAMEs:\n' + Style.RESET_ALL)
             all_cnames = []
             without_cname = 0
-            for a in cname_values:
-                for b in a:
-                    all_cnames.append(b)
+            for list in cname_values:
+                for i in list:
+                    all_cnames.append(i)
             for sub in all_subdomains:
                 if sub not in all_cnames:
                     without_cname += 1
