@@ -88,17 +88,23 @@ def check_cname(subdomain, nameserver=None):
 
 def process_subdomain(subdomain, cname_records, args):
     # Map CNAMEs to each subdomains
-    cname_target = check_cname(subdomain, args.nameserver)
-    if cname_target:
-        if cname_target not in cname_records:
-            cname_records[cname_target] = []
-        cname_records[cname_target].append(subdomain)
+    if subdomain:
+        cname_target = check_cname(subdomain, args.nameserver)
+        if cname_target:
+            if cname_target not in cname_records:
+                cname_records[cname_target] = []
+            cname_records[cname_target].append(subdomain)
 
 def verify_input(subdomain):
     # validation input
-    if subdomain.startswith("http://") or subdomain.startswith("https://"):
-        subdomain = urlparse(subdomain).hostname
-        return subdomain
+    if subdomain:
+        if subdomain.startswith("http://") or subdomain.startswith("https://"):
+            subdomain = urlparse(subdomain).hostname
+            if subdomain:
+                return subdomain
+        else:
+            return subdomain
+    return None
 
 def main():
     start = time.time()
@@ -119,28 +125,28 @@ def main():
     try:
         # Read from stdin
         if not sys.stdin.isatty():
-
             lines = sys.stdin
             all_subs = 0
 
             for subdomain in sys.stdin:
                 all_subs += 1
-                subdomain = verify_input(subdomain)
-                all_subdomains.append(subdomain)
-                process_subdomain(subdomain, cname_records, args)
+                subdomain = verify_input(subdomain.strip())
+                if subdomain:
+                    all_subdomains.append(subdomain)
+                    process_subdomain(subdomain, cname_records, args)
 
         else:
             # Read from the specified file
             with open(args.file, 'r') as f:
-
                 lines = f.readlines()
                 all_subs = len(lines)  # find number of subs in input file
 
                 for line in lines:
                     subdomain = line.strip()
                     subdomain = verify_input(subdomain)
-                    all_subdomains.append(subdomain)
-                    process_subdomain(subdomain, cname_records, args)
+                    if subdomain:
+                        all_subdomains.append(subdomain)
+                        process_subdomain(subdomain, cname_records, args)
 
         cname_keys = list(cname_records.keys())
         cname_values = list(cname_records.values())
